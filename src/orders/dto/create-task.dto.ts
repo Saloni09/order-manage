@@ -9,3 +9,8 @@ export class CreateOrderDto {
     discount: number;
     status: OrderStatus;
 }
+export class UpdateOrderDto {
+    orderId: string;
+    itemId: string; 
+    newQty: number;
+}

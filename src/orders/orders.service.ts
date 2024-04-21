@@ -23,11 +23,12 @@ export class OrdersService {
         finalCost,
         discount,
        } = createOrderDto;
+       const total = this.calculateTotal(totalCost, discount);
          const order: Order = {
             restaurantId,
             customerId,
             orderItems,
-            totalCost,
+            totalCost: total,
             finalCost,
             discount,
             orderDTime: new Date(),
@@ -51,11 +52,11 @@ export class OrdersService {
         order.orderStatusUpdateDTime = new Date();
         return await this.ordersRepository.save(order);
     }
-    async calculateTotal(order: Order): Promise<Order> {
-        const { totalCost, discount } = order;
+     calculateTotal(totalCost, discount): number {
+       // const { totalCost, discount } = order;
         const gst = totalCost * 0.05;
-        order.totalCost = totalCost - discount + gst;
-        return await this.ordersRepository.save(order);
+        return totalCost = totalCost - discount + gst;
+       // return await this.ordersRepository.save(order);
     }
     async updateOrderItem(oid: string, itemId: string, newQty: number): Promise<Order> {
         let order = await this.getOrderById(oid);
@@ -65,6 +66,6 @@ export class OrdersService {
         const diffQty = newQty - prevQty;
         order.totalCost += (diffQty * price); 
         order.finalCost += (diffQty * price);
-        return await this.calculateTotal(order);
+        return await this.ordersRepository.save(order);
     }
 }

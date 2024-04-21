@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { OrdersModule } from './tasks/orders.module';
+import { OrdersModule } from './orders/orders.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
@@ -13,7 +13,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       port: 5432,
       username: 'postgres',
       password: 'postgres',
-      database:'task-management',
+      database:'order-management',
       autoLoadEntities: true,
       synchronize: true
     }),
