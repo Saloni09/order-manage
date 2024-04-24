@@ -53,4 +53,8 @@ export class OrdersController {
         return this.commandBus.execute(new CreateOrderCommand(createOrderDto))
         //return this.ordersService.createOrder(createOrderDto);
     }
+    @Get('/crash')
+    crash(){
+        throw new Error('Crash Server!')
+    }
 }

@@ -1,17 +1,17 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ObjectIdColumn, PrimaryGeneratedColumn } from "typeorm";
 import { OrderItem, OrderStatus } from "./order.model";
 
 @Entity()
 export class Order{
-    @PrimaryGeneratedColumn('uuid')
+    @ObjectIdColumn()
     orderId?: string;
     @Column()
     restaurantId: string;
     @Column()
     customerId: string;
-    @Column()
+    @Column({type:'timestamp', default: ()=> 'CURRENT_TIMESTAMP'})
     orderDTime: Date;
-    @Column()
+    @Column({type:'timestamp', default: ()=> 'CURRENT_TIMESTAMP'})
     orderStatusUpdateDTime: Date;
     @Column()
     orderItems: Array<OrderItem> | [];
