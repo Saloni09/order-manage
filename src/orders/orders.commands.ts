@@ -1,4 +1,3 @@
-import { ICommand } from '@nestjs/cqrs';
 import { OrderStatus } from './order.model';
 import { CreateOrderDto, UpdateOrderDto } from './dto/create-task.dto';
 
