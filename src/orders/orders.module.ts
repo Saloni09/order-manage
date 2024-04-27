@@ -3,7 +3,14 @@ import { OrdersController } from './orders.controller';
 //import { OrdersService } from './orders.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { OrdersRepository } from './orders.repository';
-import { CreateOrderCommandHandler, DeleteOrderByIdCommandHandler, FetchOrderByIdQueryHandler, FetchOrdersHandler, UpdateOrderItemCommandHandler, UpdateOrderStatusCommandHandler } from './orders.handlers';
+import {
+  CreateOrderCommandHandler,
+  DeleteOrderByIdCommandHandler,
+  FetchOrderByIdQueryHandler,
+  FetchOrdersHandler,
+  UpdateOrderItemCommandHandler,
+  UpdateOrderStatusCommandHandler,
+} from './orders.handlers';
 import { CqrsModule } from '@nestjs/cqrs';
 
 @Module({
@@ -15,7 +22,8 @@ import { CqrsModule } from '@nestjs/cqrs';
     CreateOrderCommandHandler,
     DeleteOrderByIdCommandHandler,
     UpdateOrderStatusCommandHandler,
-    UpdateOrderItemCommandHandler
-    /*,OrdersService*/]
+    UpdateOrderItemCommandHandler,
+    /*,OrdersService*/
+  ],
 })
 export class OrdersModule {}

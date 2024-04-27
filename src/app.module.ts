@@ -12,7 +12,7 @@ import { Order } from './orders/order.entity';
       type: 'mongodb',
       host: '127.0.0.1',
       port: 27017,
-      database:'order-management',
+      database: 'order-management',
       entities: [Order],
       useUnifiedTopology: true,
       useNewUrlParser: true,
