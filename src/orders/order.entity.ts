@@ -1,4 +1,4 @@
-import { Column, Entity, ObjectIdColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ObjectIdColumn } from "typeorm";
 import { OrderItem, OrderStatus } from "./order.model";
 
 @Entity()
@@ -10,9 +10,9 @@ export class Order{
     @Column()
     customerId: string;
     @Column({type:'timestamp', default: ()=> 'CURRENT_TIMESTAMP'})
-    orderDTime: Date;
+    orderDTime?: Date;
     @Column({type:'timestamp', default: ()=> 'CURRENT_TIMESTAMP'})
-    orderStatusUpdateDTime: Date;
+    orderStatusUpdateDTime?: Date;
     @Column()
     orderItems: Array<OrderItem> | [];
     @Column()
