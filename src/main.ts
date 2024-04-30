@@ -6,8 +6,7 @@ import { ExpressAdapter } from '@nestjs/platform-express';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
-import { Logger } from 'nestjs-pino';
-import pino from 'pino';
+
 async function bootstrap() {
   // const app = await NestFactory.createMicroservice<MicroserviceOptions>(
   //   AppModule,
